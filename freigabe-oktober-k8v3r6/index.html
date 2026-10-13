@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>TIERisch gut · Beiträge und Testanzeige</title>
+<link rel="icon" href="data:,"><style>
+@font-face{font-family:Inter;src:url(f/inter-400.woff2) format('woff2');font-weight:400}
+@font-face{font-family:Inter;src:url(f/inter-600.woff2) format('woff2');font-weight:600}
+@font-face{font-family:Inter;src:url(f/inter-700.woff2) format('woff2');font-weight:700}
+@font-face{font-family:Manrope;src:url(f/manrope-500.woff2) format('woff2');font-weight:500}
+@font-face{font-family:Manrope;src:url(f/manrope-700.woff2) format('woff2');font-weight:700}
+:root{--ink:#17262B;--text:#2B3A40;--grau:#66757B;--hell:#F6F4F0;--linie:#E4DFD8;--akzent:#005127;--m:#005127}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--text);background:#fff;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.leiste{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--linie)}
+.leiste img{height:26px}.leiste span{font-size:13px;color:var(--grau)}
+.kopf-bereich{padding:56px 0 8px}
+.dachzeile{font-size:14px;color:var(--grau);margin:0 0 14px}
+h1{font-family:Manrope,Inter,sans-serif;font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.1;margin:0 0 18px;color:var(--ink);letter-spacing:-.015em}
+.lead{font-size:clamp(17px,2vw,19px);max-width:640px;margin:0;color:var(--text)}
+section{padding:56px 0 0}
+h2{font-family:Manrope,Inter,sans-serif;font-size:clamp(23px,2.8vw,28px);color:var(--ink);margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--grau);margin:0 0 22px;max-width:680px}
+.stand{border-top:1px solid var(--linie);max-width:820px}
+.stand div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--linie)}
+.stand b{color:var(--ink);font-weight:600}.stand .jetzt b{color:var(--akzent)}
+.ablauf{margin:0;padding:0;list-style:none;border-top:1px solid var(--linie);max-width:820px;counter-reset:n}
+.ablauf li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--linie);counter-increment:n}
+.ablauf li b{color:var(--ink);font-weight:600}
+.ablauf li b::before{content:counter(n) ". ";color:var(--grau);font-weight:400}
+.notiz{margin:16px 0 0;max-width:820px;color:var(--grau);font-size:15px}
+.kalender{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}
+.tag{border:1px solid var(--linie);border-radius:10px;padding:10px;min-height:118px;background:#fff}
+.tag.start{border-color:var(--akzent)}
+.datum{font-size:13px;color:var(--grau);margin-bottom:8px}.datum b{color:var(--ink)}
+.datum span{margin-left:6px;color:var(--akzent);font-weight:600}
+.chip{display:block;text-decoration:none;font-size:12.5px;line-height:1.3;padding:6px 8px;border-radius:6px;margin-bottom:6px;background:color-mix(in srgb,var(--m) 11%,#fff);border-left:3px solid var(--m);color:var(--ink)}
+.chip:hover{background:color-mix(in srgb,var(--m) 22%,#fff)}
+.legende{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 0;font-size:14px;color:var(--grau)}
+.legende span{display:flex;align-items:center;gap:7px}.legende i{width:10px;height:10px;border-radius:2px;background:var(--m)}
+.filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;position:sticky;top:0;background:#fff;padding:12px 0;z-index:5}
+.filter button{font:inherit;font-size:14px;border:1px solid var(--linie);background:#fff;border-radius:999px;padding:7px 15px;cursor:pointer;color:var(--text)}
+.filter button.aktiv{background:var(--ink);color:#fff;border-color:var(--ink)}
+.raster{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.karte{border:1px solid var(--linie);border-radius:14px;overflow:hidden;background:#fff;display:flex;flex-direction:column;scroll-margin-top:80px}
+.karte:target{box-shadow:0 0 0 2px var(--akzent)}
+.media{position:relative;background:#111;line-height:0}
+.media img,.media video{width:100%;display:block}
+.media.hoch video,.media.hoch img{aspect-ratio:9/16;object-fit:cover}
+.media.quer>img{aspect-ratio:4/5;object-fit:cover}
+.karussell .spur{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;aspect-ratio:4/5;overscroll-behavior-x:contain}
+.karussell .spur::-webkit-scrollbar{display:none}
+.karussell .spur img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:start}
+.pfeil{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--ink);font-size:26px;line-height:1;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.25);display:grid;place-items:center;padding:0 0 3px}
+.pfeil.zurueck{left:10px}.pfeil.vor{right:10px}.pfeil[disabled]{opacity:0;pointer-events:none}
+.punkte{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:4px;line-height:1}
+.punkte button{width:22px;height:22px;border:0;background:none;padding:0;cursor:pointer;display:grid;place-items:center}
+.punkte button::before{content:'';width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);box-shadow:0 0 2px rgba(0,0,0,.4)}
+.punkte button.an::before{background:#fff}
+.hinweis{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(23,38,43,.88);color:#fff;font-size:13px;line-height:1.4;padding:10px 12px;border-radius:8px}
+.info{padding:16px 18px 18px}
+.meta{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:13px;color:var(--grau);align-items:center}
+.meta .marke{color:var(--m);font-weight:600}
+.karte h3{font-family:Manrope,Inter,sans-serif;font-size:18px;color:var(--ink);margin:6px 0 8px;line-height:1.3}
+.kopf{margin:0 0 6px;font-size:15px}
+details summary{cursor:pointer;color:var(--m,var(--akzent));font-size:14px;font-weight:600;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details.text p{font-size:14.5px;margin:8px 0 0;color:var(--text)}
+details.story{padding:0 18px 4px;line-height:1.5}
+details.story summary{padding:10px 0;font-size:14px;color:var(--m)}
+details.story img{width:60%;border-radius:10px;margin:4px 0 12px}
+.brauchen{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;border-top:1px solid var(--linie);padding-top:18px}
+.brauchen h4{margin:0 0 6px;color:var(--ink);font-size:16px;display:flex;align-items:center;gap:8px}
+.brauchen h4 i{width:10px;height:10px;border-radius:2px;background:var(--m)}
+.brauchen ul{margin:0;padding-left:18px;font-size:15px}.brauchen li{margin:4px 0}
+.sperre{background:#B54A1F;color:#fff;font-weight:600;font-size:14px;line-height:1.35;padding:11px 16px;text-align:center;letter-spacing:.01em}
+.ende{height:80px}
+@media (max-width:980px){.raster{grid-template-columns:repeat(2,1fr)}.brauchen{grid-template-columns:1fr;gap:18px}
+ .kalender{grid-template-columns:1fr;gap:6px}.tag{display:grid;grid-template-columns:96px 1fr;gap:0 12px;min-height:0;padding:10px 12px}
+ .tag.leer{display:none}.tag .datum{margin:5px 0 0}.datum span{display:block;margin:3px 0 0}
+ .tag>div:last-child{display:flex;flex-wrap:wrap;gap:6px}.tag .chip{margin:0}}
+@media (max-width:620px){.wrap{padding:0 16px}.kopf-bereich{padding-top:36px}.raster{grid-template-columns:1fr}
+ .stand div,.ablauf li{grid-template-columns:1fr;gap:2px}
+ .tag{grid-template-columns:74px 1fr;gap:0 10px}.tag>div:last-child{display:block}.tag .chip{margin-bottom:6px}
+ .leiste span{font-size:12px}
+ .filter{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px 18px;padding:10px 16px}.filter::-webkit-scrollbar{display:none}
+ .filter button{flex:0 0 auto}}
+
+.meta .netz{color:#005127;font-weight:600}
+.status{display:inline-block;font-size:13px;font-weight:600;border-radius:999px;padding:3px 10px;margin:0 0 10px}
+.status.ok{background:#e9f2e2;color:#005127}.status.warten{background:#fdf3e3;color:#9a5f05}
+.chip{--m:#005127}.chip.warten{--m:#e28e04}
+.knopf{font-size:13.5px;color:var(--grau);margin:10px 0 0}
+.raster.vier{grid-template-columns:repeat(4,1fr)}
+@media (max-width:980px){.raster.vier{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.raster.vier{grid-template-columns:1fr}}
+</style></head><body>
+<div class="wrap">
+ <div class="leiste"><img src="m/leadwerk-logo-dunkel.png" alt="Leadwerk"><span>Stand 13. Oktober 2026</span></div>
+ <div class="kopf-bereich">
+  <p class="dachzeile">Facebook und Instagram für TIERisch gut Karlsruhe, 28. und 29. November 2026</p>
+  <h1>Die ersten Beiträge und die Testanzeige.</h1>
+  <p class="lead">Fassung 2 mit deinen Kommentaren. Hier siehst du jeden eingeplanten Beitrag so, wie er auf Facebook und Instagram erscheint, dazu die vier Anzeigen für den Test.</p>
+ </div>
+</div>
+<section><div class="wrap">
+ <h2>Wo wir stehen</h2>
+ <div class="stand">
+  <div><b>Erledigt</b><span>Motive und Texte nach deinen Kommentaren überarbeitet, Testkampagne im Werbekonto angelegt, Beiträge bis 22. Oktober für Facebook und Instagram eingeplant.</span></div>
+  <div class="jetzt"><b>Jetzt</b><span>Dein kurzes Okay zu Fassung 2. Danach starten Test und Beiträge.</span></div>
+  <div><b>Do 15.10.</b><span>Der erste Beitrag geht online, der Rückblick auf 2025.</span></div>
+ </div>
+</div></section>
+<section><div class="wrap">
+ <h2>Bis 22. Oktober</h2><p class="sub">Tippe auf einen Beitrag, um ihn anzusehen. Die beiden Beiträge mit KONG gehen erst nach Abstimmung mit KONG und eurer Freigabe raus.</p>
+ <div class="kalender"><div class="tag"><div class="datum"><b>Do</b> 15.10.</div><div><a class="chip" href="#b-2026-10-15">Rückblick 2025</a></div></div><div class="tag leer"><div class="datum"><b>Fr</b> 16.10.</div><div></div></div><div class="tag"><div class="datum"><b>Sa</b> 17.10.</div><div><a class="chip warten" href="#b-2026-10-17">KONG Befüll-Aktion</a></div></div><div class="tag leer"><div class="datum"><b>So</b> 18.10.</div><div></div></div><div class="tag leer"><div class="datum"><b>Mo</b> 19.10.</div><div></div></div><div class="tag"><div class="datum"><b>Di</b> 20.10.</div><div><a class="chip" href="#b-2026-10-20">Besucherhunde-Trophy</a></div></div><div class="tag leer"><div class="datum"><b>Mi</b> 21.10.</div><div></div></div><div class="tag"><div class="datum"><b>Do</b> 22.10.</div><div><a class="chip warten" href="#b-2026-10-22">Dogfrisbee mit Julia Reinecke</a></div></div></div>
+</div></section>
+<section id="beitraege"><div class="wrap">
+ <h2>Die Beiträge</h2><p class="sub">Auf Facebook steht statt „Link in der Bio“ der Link zu den Tickets direkt im Beitrag. Das Reel lässt sich hier abspielen, das Karussell mit den Pfeilen durchblättern.</p>
+ <div class="raster"><article class="karte" id="b-2026-10-15"><div class="media hoch"><video controls playsinline preload="none" poster="m/reel-rueckblick-poster.jpg"><source src="m/reel-rueckblick.mp4" type="video/mp4"></video></div><div class="info"><div class="meta"><span class="netz">Facebook und Instagram</span><span>Do 15.10. · 18:30 Uhr · Reel</span></div><h3>Rückblick 2025</h3><p class="status ok">eingeplant, geht nach deinem Okay raus</p><p class="kopf">So war die TIERisch gut 2025: Hunde in Bewegung, Shows im Ehrenring und jede Menge Begegnungen. 🐾<br>Am 28. und 29. November geht es weiter, und dein Hund ist wieder willkommen.</p><details class="text"><summary>Ganzen Text lesen</summary><p>🎟 Tickets online 13 € statt 15 € an der Tageskasse, Link in der Bio</p><p>#tierischgut #tierischgutkarlsruhe #hundekarlsruhe #karlsruhe #hundeliebe</p></details></div></article><article class="karte" id="b-2026-10-17"><div class="media quer karussell"><div class="spur"><img src="m/kong-1.jpg" alt="Bild 1 von 5"><img src="m/kong-2.jpg" alt="Bild 2 von 5"><img src="m/kong-3.jpg" alt="Bild 3 von 5"><img src="m/kong-4.jpg" alt="Bild 4 von 5"><img src="m/kong-5.jpg" alt="Bild 5 von 5"></div><button class="pfeil zurueck" aria-label="Zurück">&#8249;</button><button class="pfeil vor" aria-label="Weiter">&#8250;</button><div class="punkte"><button aria-label="Bild 1"></button><button aria-label="Bild 2"></button><button aria-label="Bild 3"></button><button aria-label="Bild 4"></button><button aria-label="Bild 5"></button></div></div><div class="info"><div class="meta"><span class="netz">Facebook und Instagram</span><span>Sa 17.10. · 10:00 Uhr · Karussell mit fünf Bildern</span></div><h3>KONG Befüll-Aktion</h3><p class="status warten">wartet auf KONG und eure Freigabe</p><p class="kopf">Ihr befüllt, KONG spendet. 🧡<br>Bei der KONG Befüll-Aktion auf der TIERisch gut befüllst du einen KONG mit leckeren Zutaten, und alle befüllten KONGs gehen an Tierschutzorganisationen vor Ort. KONGs und Futter stellt @kongcompany.eu, Tipps gibt es vom KONG-Team und von Dogfrisbee-Profi Julia Reinecke.</p><details class="text"><summary>Ganzen Text lesen</summary><p>📅 28. und 29. November, Messe Karlsruhe<br>🎟 Tickets online 13 € statt 15 €, Link in der Bio</p><p>#tierischgut #kong #kongcompany #hundekarlsruhe #tierschutz</p></details></div></article><article class="karte" id="b-2026-10-20"><div class="media quer"><img loading="lazy" src="m/trophy.jpg" alt=""></div><div class="info"><div class="meta"><span class="netz">Facebook und Instagram</span><span>Di 20.10. · 18:30 Uhr · Bild</span></div><h3>Besucherhunde-Trophy</h3><p class="status ok">eingeplant, geht nach deinem Okay raus</p><p class="kopf">Dein Hund im Ehrenring: die Besucherhunde-Trophy. 🏆<br>Hier zählt nicht der Stammbaum, sondern ihr zwei als Team. Ein Tierarzt schaut auf Gesundheit und Pflege, dazu zeigt ihr Sitz, Platz, Fußarbeit und euren besten Trick. Mischlinge sind genauso willkommen wie Rassehunde, mitmachen können Hunde ab sechs Monaten.</p><details class="text"><summary>Ganzen Text lesen</summary><p>✅ Jedes Team bekommt eine Urkunde und einen Teilnehmerpreis<br>🎟 Wer sich vorab anmeldet, bekommt eine Freikarte für sich und den Hund für einen Tag<br>📝 Startgeld 10 €, die Plätze pro Tag sind begrenzt</p><p>Alle Infos und den Meldeschein findest du auf tierischgut-karlsruhe.de unter Besucherhunde-Trophy.</p><p>#tierischgut #besucherhundetrophy #hundekarlsruhe #mischlingshund</p></details></div></article><article class="karte" id="b-2026-10-22"><div class="media quer"><img loading="lazy" src="m/dogfrisbee.jpg" alt=""></div><div class="info"><div class="meta"><span class="netz">Facebook und Instagram</span><span>Do 22.10. · 18:30 Uhr · Bild</span></div><h3>Dogfrisbee mit Julia Reinecke</h3><p class="status warten">wartet auf KONG und eure Freigabe</p><p class="kopf">Sprünge, Tricks und Tempo: Dogfrisbee mit Julia Reinecke und ihrem Hund Schnäppchen. 🥏<br>Julia ist seit über zehn Jahren im Dogfrisbee aktiv und war bei den Dogfrisbee World Finals 2016 und 2024 unter den besten zehn. Auf der TIERisch gut zeigt sie im Ehrenring, was mit Training und Spaß möglich ist, und im Infoforum gibt sie Tipps für den Einstieg.<br>Präsentiert von @kongcompany.eu</p><details class="text"><summary>Ganzen Text lesen</summary><p>📅 28. und 29. November, Messe Karlsruhe<br>🎟 Tickets online 13 € statt 15 €, Link in der Bio</p><p>#tierischgut #dogfrisbee #kong #hundesport #hundekarlsruhe</p></details></div></article></div>
+</div></section>
+<section><div class="wrap">
+ <h2>Die Testanzeige</h2><p class="sub">Eine Woche, 10 € am Tag, Umkreis 40 Kilometer um Karlsruhe. Jede Anzeige führt auf die Seite Tickets &amp; Preise.</p>
+ <div class="raster vier"><article class="karte"><div class="media quer"><img loading="lazy" src="m/anzeige-a.jpg" alt=""></div><div class="info"><div class="meta"><span class="netz">Anzeige A</span><span>Feed, Storys und Reels</span></div><h3>Hund erleben</h3><p class="kopf">Hund erleben, nicht nur zuschauen!</p><details class="text"><summary>Ganzen Text lesen</summary><p>Freue dich auf ein umfangreiches Rahmenprogramm mit DogDancing, DogFrisbee, der Besucherhunde-Trophy und rund 200 Industrieausstellern rund um das Thema Hund.</p><p>Am 28. und 29. November in Karlsruhe. Dein Hund ist herzlich willkommen, ganz gleich, ob Mischling oder Rassehund.</p><p>Online-Ticket: 13 € statt 15 € an der Tageskasse.<br>Eintritt für deinen Hund: 2 €.</p></details><p class="knopf"><b>Tickets online 2 € günstiger</b> · Knopf „Tickets kaufen“</p></div></article><article class="karte"><div class="media quer"><img loading="lazy" src="m/anzeige-b.jpg" alt=""></div><div class="info"><div class="meta"><span class="netz">Anzeige B</span><span>Feed, Storys und Reels</span></div><h3>Ein Tag für dich und deinen Hund</h3><p class="kopf">Ein Tag nur für dich und deinen Hund: stöbern bei rund 200 Industrieausstellern, staunen an der Showbühne und mitmachen bei der Besucherhunde-Trophy. Willkommen ist jeder Hund, egal ob Mischling oder Rassehund. Am 28. und 29. November in Karlsruhe.<br>Online 13 € statt 15 €, dein Hund zahlt 2 €.</p><details class="text"><summary>Ganzen Text lesen</summary></details><p class="knopf"><b>Tickets online 2 € günstiger</b> · Knopf „Tickets kaufen“</p></div></article><article class="karte"><div class="media quer"><img loading="lazy" src="m/anzeige-c.jpg" alt=""></div><div class="info"><div class="meta"><span class="netz">Anzeige C</span><span>Feed, Storys und Reels</span></div><h3>Der Familientag mit Hund</h3><p class="kopf">Der Familientag mit Hund: streicheln, staunen, mitmachen. Mit Kinderbetreuung im Kids-Café, unserem Ballonkünstler, der Luftballons in fantasievolle Kunstwerke verwandelt, der Bastelstation an der Bühne von RADIO REGENBOGEN und einem umfangreichen Rahmenprogramm.</p><details class="text"><summary>Ganzen Text lesen</summary><p>Das Familienticket gilt für zwei Erwachsene, alle eigenen Kinder bis 18 und euren Familienhund: online 36 € statt 45 € an der Tageskasse.</p></details><p class="knopf"><b>Familienticket online 36 €</b> · Knopf „Tickets kaufen“</p></div></article><article class="karte"><div class="media hoch"><video controls playsinline preload="none" poster="m/reel-rueckblick-poster.jpg"><source src="m/reel-rueckblick.mp4" type="video/mp4"></video></div><div class="info"><div class="meta"><span class="netz">Anzeige D</span><span>Feed, Storys und Reels</span></div><h3>Video So war 2025</h3><p class="kopf">So war die TIERisch gut 2025. Am 28. und 29. November geht es weiter, und dein Hund ist wieder willkommen.<br>Tickets online 13 € statt 15 € an der Tageskasse.</p><details class="text"><summary>Ganzen Text lesen</summary></details><p class="knopf"><b>2026 geht&#x27;s weiter</b> · Knopf „Tickets kaufen“</p></div></article></div>
+</div></section>
+<div class="ende"></div>
+<script>
+ const m=b.dataset.m;document.querySelectorAll('.karte').forEach(k=>{k.style.display=(m==='alle'||k.dataset.marke===m)?'':'none'})}));
+document.querySelectorAll('.karussell').forEach(k=>{
+ const s=k.querySelector('.spur'),p=[...k.querySelectorAll('.punkte button')],z=k.querySelector('.zurueck'),v=k.querySelector('.vor'),n=p.length;
+ const idx=()=>Math.round(s.scrollLeft/s.clientWidth);
+ const geh=i=>{i=Math.max(0,Math.min(n-1,i));const ziel=i*s.clientWidth;s.scrollTo({left:ziel,behavior:'smooth'});
+  setTimeout(()=>{if(Math.abs(s.scrollLeft-ziel)>4){s.scrollLeft=ziel;up()}},700)};
+ const up=()=>{const i=idx();p.forEach((x,j)=>x.classList.toggle('an',i===j));z.disabled=i<=0;v.disabled=i>=n-1};
+ z.addEventListener('click',()=>geh(idx()-1));v.addEventListener('click',()=>geh(idx()+1));
+ p.forEach((x,j)=>x.addEventListener('click',()=>geh(j)));
+ s.addEventListener('scroll',()=>requestAnimationFrame(up),{passive:true});window.addEventListener('resize',up);up()});
+document.querySelectorAll('video').forEach(v=>v.addEventListener('play',()=>document.querySelectorAll('video').forEach(o=>{if(o!==v)o.pause()})));</script></body></html>
