@@ -125,7 +125,6 @@ details.story img{width:60%;border-radius:10px;margin:4px 0 12px}
 </div></section>
 <div class="ende"></div>
 <script>
- const m=b.dataset.m;document.querySelectorAll('.karte').forEach(k=>{k.style.display=(m==='alle'||k.dataset.marke===m)?'':'none'})}));
 document.querySelectorAll('.karussell').forEach(k=>{
  const s=k.querySelector('.spur'),p=[...k.querySelectorAll('.punkte button')],z=k.querySelector('.zurueck'),v=k.querySelector('.vor'),n=p.length;
  const idx=()=>Math.round(s.scrollLeft/s.clientWidth);
@@ -135,4 +134,5 @@ document.querySelectorAll('.karussell').forEach(k=>{
  z.addEventListener('click',()=>geh(idx()-1));v.addEventListener('click',()=>geh(idx()+1));
  p.forEach((x,j)=>x.addEventListener('click',()=>geh(j)));
  s.addEventListener('scroll',()=>requestAnimationFrame(up),{passive:true});window.addEventListener('resize',up);up()});
-document.querySelectorAll('video').forEach(v=>v.addEventListener('play',()=>document.querySelectorAll('video').forEach(o=>{if(o!==v)o.pause()})));</script></body></html>
+document.querySelectorAll('video').forEach(v=>v.addEventListener('play',()=>document.querySelectorAll('video').forEach(o=>{if(o!==v)o.pause()})));
+</script></body></html>
